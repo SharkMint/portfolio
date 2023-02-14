@@ -14,7 +14,7 @@ const Proyects = () => {
         <li className='p-card-item'>
           <div className='p-card'>
             <div className='p-card-imgage'>
-              <img src={cafeteria} className="p-card-img" />
+              <img src={cafeteria} alt="cafeteria" className="p-card-img" />
             </div>
             <div className='p-card-content'>
               <h2 className='p-card-title'>El Gustico</h2>
@@ -26,7 +26,7 @@ const Proyects = () => {
         <li className='p-card-item'>
           <div className='p-card'>
             <div className='p-card-imgage'>
-              <img src={tienda} className="p-card-img" />
+              <img src={tienda} alt="tienda" className="p-card-img" />
             </div>
             <div className='p-card-content'>
               <h2 className='p-card-title'>Tienda Virtual</h2>
@@ -38,7 +38,7 @@ const Proyects = () => {
         <li className='p-card-item'>
           <div className='p-card'>
             <div className='p-card-imgage'>
-              <img src={netflix} className="p-card-img" />
+              <img src={netflix} alt="netflix" className="p-card-img" />
             </div>
             <div className='p-card-content'>
               <h2 className='p-card-title'>Netflix Clone</h2>
@@ -50,7 +50,7 @@ const Proyects = () => {
         <li className='p-card-item'>
           <div className='p-card'>
             <div className='p-card-imgage'>
-              <img src={libros} className="p-card-img" />
+              <img src={libros} alt="libros"  className="p-card-img" />
             </div>
             <div className='p-card-content'>
               <h2 className='p-card-title'>Library</h2>
