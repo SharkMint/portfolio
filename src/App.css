@@ -1,0 +1,14 @@
+* {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --skill-bar-length: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+}
