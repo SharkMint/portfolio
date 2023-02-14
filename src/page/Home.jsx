@@ -7,7 +7,7 @@ import ParticlesBackground from "../components/ParticlesBackground";
 import Proyects from "../components/Proyects";
 import React from "react";
 import Skils from "../components/Skils";
-import programer1 from "../assets/img/programer1.png";
+import programer1 from "./../assets/img/programer1.png";
 
 function Home() {
   return (

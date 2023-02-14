@@ -1,21 +1,21 @@
 import "./../styles/Skils.css";
 import React from "react";
-import aspnetmvc from "../assets/img/aspnetmvc.png";
-import firebase from "../assets/img/firebase.png";
-import iconbootstrap from "../assets/img/bootstrap.png";
-import iconcss from "../assets/img/css_3.png";
-import icongithub from "../assets/img/github.png";
-import iconhtml from "../assets/img/html-5.png";
-import iconjavascript from "../assets/img/javascript.png";
-import iconreact from "../assets/img/react.png";
-import iconredux from "../assets/img/redux.png";
-import icontypescript from "../assets/img/typescript.png";
-import laravel from "../assets/img/laravel.png";
-import mysql from "../assets/img/mysql.png";
-import net from "../assets/img/net.png";
-import nextjs from "../assets/img/nextjs.png";
-import sql from "../assets/img/sql.png";
-import tailwind from "../assets/img/tailwind.png";
+import aspnetmvc from "./../assets/img/aspnetmvc.png";
+import firebase from "./../assets/img/firebase.png";
+import iconbootstrap from "./../assets/img/bootstrap.png";
+import iconcss from "./../assets/img/css_3.png";
+import icongithub from "./../assets/img/github.png";
+import iconhtml from "./../assets/img/html-5.png";
+import iconjavascript from "./../assets/img/javascript.png";
+import iconreact from "./../assets/img/react.png";
+import iconredux from "./../assets/img/redux.png";
+import icontypescript from "./../assets/img/typescript.png";
+import laravel from "./../assets/img/laravel.png";
+import mysql from "./../assets/img/mysql.png";
+import net from "./../assets/img/net.png";
+import nextjs from "./../assets/img/nextjs.png";
+import sql from "./../assets/img/sql.png";
+import tailwind from "./../assets/img/tailwind.png";
 
 const Skils = () => {
   return (

@@ -1,11 +1,11 @@
 import "./../styles/About.css";
 import React from "react";
-import curriculo from "../docs/Curriculum.pdf";
-import fotomia from "../assets/img/Fotomia.jpg";
-import github from "../assets/img/github.png";
-import instagram from "../assets/img/instagram.png";
-import linkedin from "../assets/img/linkedin.png";
-import twitter from "../assets/img/twitter.png";
+import curriculo from "./../docs/Curriculum.pdf";
+import fotomia from "./../assets/img/Fotomia.jpg";
+import github from "./../assets/img/github.png";
+import instagram from "./../assets/img/instagram.png";
+import linkedin from "./../assets/img/linkedin.png";
+import twitter from "./../assets/img/twitter.png";
 
 const About = () => {
   return (
