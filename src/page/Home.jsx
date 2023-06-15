@@ -26,7 +26,7 @@ function Home() {
 
         <div className='i-left'>
           <div className='i-left-wrapper'>
-            <h2 className='i-intro'>Hi, I`m Maicol Jaquez</h2>
+            <h2 className='i-intro'>Hola, soy Maicol Jaquez</h2>
             <h2 className='i-title-item'>Software Developer </h2>
           </div>
         </div>
