@@ -4,7 +4,6 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Proyects from "../components/Proyects";
-import React from "react";
 import Skils from "../components/Skils";
 import programer1 from "./../assets/img/programer1.png";
 
