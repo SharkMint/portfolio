@@ -7,6 +7,10 @@ import Header from "../components/Header";
 import Proyects from "../components/Proyects";
 import Skils from "../components/Skils";
 import programer1 from "./../assets/img/programer1.png";
+import TiendaVirtual from "../assets/img/TiendaVirtual.png";
+import NetflixClone from "../assets/img/netflix-clone.png";
+import RestaurantCafe from "../assets/img/RestaurantCafe.png";
+import Libreria from "../assets/img/Libreria.png";
 import {
   Box,
   Container,
@@ -57,19 +61,19 @@ function Home() {
           <Heading as="h3" size="md" color="white" mb={4}>Proyectos destacados</Heading>
           <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} gap={4}>
             <Box p={4} bg="whiteAlpha.50" borderRadius="md">
-              <Image src={require("../assets/img/TiendaVirtual.png")} alt="tienda" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Image src={TiendaVirtual} alt="tienda" objectFit="cover" w="full" h="140px" borderRadius="md" />
               <Text color="white" fontWeight="semibold" mt={2}>Tienda Virtual</Text>
             </Box>
             <Box p={4} bg="whiteAlpha.50" borderRadius="md">
-              <Image src={require("../assets/img/netflix-clone.png")} alt="netflix" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Image src={NetflixClone} alt="netflix" objectFit="cover" w="full" h="140px" borderRadius="md" />
               <Text color="white" fontWeight="semibold" mt={2}>Netflix Clone</Text>
             </Box>
             <Box p={4} bg="whiteAlpha.50" borderRadius="md">
-              <Image src={require("../assets/img/RestaurantCafe.png")} alt="cafe" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Image src={RestaurantCafe} alt="cafe" objectFit="cover" w="full" h="140px" borderRadius="md" />
               <Text color="white" fontWeight="semibold" mt={2}>El Gustico</Text>
             </Box>
             <Box p={4} bg="whiteAlpha.50" borderRadius="md">
-              <Image src={require("../assets/img/Libreria.png")} alt="libros" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Image src={Libreria} alt="libros" objectFit="cover" w="full" h="140px" borderRadius="md" />
               <Text color="white" fontWeight="semibold" mt={2}>Library</Text>
             </Box>
           </SimpleGrid>

@@ -14,7 +14,6 @@ import laravel from "./../assets/img/laravel.png";
 import mysql from "./../assets/img/mysql.png";
 import net from "./../assets/img/net.png";
 import nextjs from "./../assets/img/nextjs.png";
-import tailwind from "./../assets/img/tailwind.png";
 import {
   Box,
   Container,
@@ -28,8 +27,8 @@ import {
 const Skils = () => {
   const groups = [
     { title: 'Backend', items: [{img: aspnetmvc, label: 'ASP.NET MVC'}, {img: net, label: '.NET'}, {img: laravel, label: 'Laravel'}, {img: nextjs, label: 'Next JS'}, {img: firebase, label: 'Firebase'}, {img: mysql, label: 'Mysql'}] },
-    { title: 'Frontend', items: [{img: iconhtml, label: 'HTML 5'}, {img: iconcss, label: 'CSS 3'}, {img: iconjavascript, label: 'Javascript'}, {img: icontypescript, label: 'Typescript'}, {img: tailwind, label: 'Tailwind CSS'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: icongithub, label: 'Github'}, {img: iconreact, label: 'React.JS'}] },
-    { title: 'Tools & Others', items: [{img: iconredux, label: 'Redux'}, {img: icongithub, label: 'GitHub'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: tailwind, label: 'Tailwind'}, {img: iconreact, label: 'React'}] }
+  { title: 'Frontend', items: [{img: iconhtml, label: 'HTML 5'}, {img: iconcss, label: 'CSS 3'}, {img: iconjavascript, label: 'Javascript'}, {img: icontypescript, label: 'Typescript'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: icongithub, label: 'Github'}, {img: iconreact, label: 'React.JS'}] },
+  { title: 'Tools & Others', items: [{img: iconredux, label: 'Redux'}, {img: icongithub, label: 'GitHub'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: iconreact, label: 'React'}] }
   ];
 
   return (

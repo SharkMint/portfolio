@@ -1,3 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Public CSS placeholder (Tailwind removed). Keep minimal reset or leave empty. */
+/* If you use a global stylesheet, main app styles live in src/index.css */
+
+html, body, #root { height: 100%; }
+body { margin: 0; }
