@@ -1,4 +1,4 @@
-import "./../styles/Skils.css";
+// styles removed: using Tailwind utilities only
 import React from "react";
 import aspnetmvc from "./../assets/img/aspnetmvc.png";
 import firebase from "./../assets/img/firebase.png";
@@ -14,118 +14,37 @@ import laravel from "./../assets/img/laravel.png";
 import mysql from "./../assets/img/mysql.png";
 import net from "./../assets/img/net.png";
 import nextjs from "./../assets/img/nextjs.png";
-import sql from "./../assets/img/sql.png";
 import tailwind from "./../assets/img/tailwind.png";
 
 const Skils = () => {
+  const groups = [
+    { title: 'Backend', items: [{img: aspnetmvc, label: 'ASP.NET MVC'}, {img: net, label: '.NET'}, {img: laravel, label: 'Laravel'}, {img: nextjs, label: 'Next JS'}, {img: firebase, label: 'Firebase'}, {img: mysql, label: 'Mysql'}] },
+    { title: 'Frontend', items: [{img: iconhtml, label: 'HTML 5'}, {img: iconcss, label: 'CSS 3'}, {img: iconjavascript, label: 'Javascript'}, {img: icontypescript, label: 'Typescript'}, {img: tailwind, label: 'Tailwind CSS'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: icongithub, label: 'Github'}, {img: iconreact, label: 'React.JS'}] },
+    { title: 'Tools & Others', items: [{img: iconredux, label: 'Redux'}, {img: icongithub, label: 'GitHub'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: tailwind, label: 'Tailwind'}, {img: iconreact, label: 'React'}] }
+  ];
+
   return (
-    <>
-      <div className='s' id="skils" style={{ height: "100vh" }} >
-        <h1 className='title' >Habilidades</h1>
+    <section id="skils" className="py-16 bg-gradient-to-tr from-[#021024] to-[#061827]">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl text-white text-center mb-8">Habilidades</h2>
 
-        <div className='s-container' >
-          <div className='s-skills'>
-            <h2 className='title1' >BACKEND</h2>
-            <div className='s-content'>
-
-              <div className='s-back-tecno'>
-                <div className='s-back--bar' >
-                  <img src={aspnetmvc} alt="aspnetmvc" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >ASP.NET MVC</h3>
-                </div>
-
-                <div className='s-back--bar' >
-                  <img src={net} alt="net" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >.NET</h3>
-                </div>
-
-                <div className='s-back--bar' >
-                  <img src={laravel} alt="laravel" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >Laravel</h3>
-                </div>
-
-                <div className='s-back--bar' >
-                  <img src={nextjs} alt="nextjs" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >Next JS</h3>
-                </div>
-              </div>
-
-              <div className='s-back-tecno'>
-                <div className='s-back--bar' >
-                  <img src={firebase} alt="firebase" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >Firebase</h3>
-                </div>
-
-                <div className='s-back--bar' >
-                  <img src={mysql} alt="mysql" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >Mysql</h3>
-                </div>
-
-                <div className='s-back--bar' >
-                  <img src={sql} alt="sql" className='s-back-icon-skills' />
-                  <h3 className='s-back-label' >SQL Server</h3>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {groups.map((g, idx) => (
+            <div key={idx} className="bg-white/3 p-6 rounded-xl">
+              <h3 className="text-xl text-white mb-4">{g.title}</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {g.items.map((s, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+                    <img src={s.img} alt={s.label} className="w-8 h-8" />
+                    <span className="text-white">{s.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-
-          <div className='s-skills'>
-            <h2 className='title1' >FRONTEND</h2>
-            <div className='s-content'>
-              <div className='s-front-tecno'>
-                <div className='s-front--bar' >
-                  <img src={iconhtml} alt="html" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >HTML 5</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={iconcss} alt="css" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >CSS 3</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={iconjavascript} alt="javascrip" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >Javascript</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={icontypescript} alt="javascrip" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >Typescript</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={tailwind} alt="tailwind" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >Tailwind CSS</h3>
-                </div>
-              </div>
-
-              <div className='s-front-tecno'>
-                <div className='s-front--bar' >
-                  <img src={iconbootstrap} alt="bootstrap" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >Bootstrap</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={icongithub} alt="github" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >Github</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={iconreact} alt="react" className='s-front-icon-skills-react' />
-                  <h3 className='s-front-label' >React.JS</h3>
-                </div>
-
-                <div className='s-front--bar' >
-                  <img src={iconredux} alt="redux" className='s-front-icon-skills' />
-                  <h3 className='s-front-label' >Redux</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
-    </>
+    </section>
   )
 }
 

@@ -1,31 +1,7 @@
-import Particles from "react-tsparticles";
-import particlesConfig from "./config/Particles-config";
-import { useCallback } from "react";
-import { loadFull } from "tsparticles";
-
+// Particles were removed for performance and spacing reasons.
+// This stub keeps the import safe if any file still references the component.
 const ParticlesBackground = () => {
-
-  const particlesInit = useCallback(async engine => {
-    console.log(engine);
-    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async container => {
-    await console.log(container);
-  }, []);
-
-
-  return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
-      params={particlesConfig}
-    />
-  )
+  return null;
 }
 
-export default ParticlesBackground
+export default ParticlesBackground;
