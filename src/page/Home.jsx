@@ -1,4 +1,5 @@
 // legacy styles removed; using Tailwind utilities only
+import React from "react";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -6,64 +7,74 @@ import Header from "../components/Header";
 import Proyects from "../components/Proyects";
 import Skils from "../components/Skils";
 import programer1 from "./../assets/img/programer1.png";
+import {
+  Box,
+  Container,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Button,
+  Image,
+  SimpleGrid,
+} from "@chakra-ui/react";
 
 function Home() {
   return (
     <>
-  <Header />
+      <Header />
 
-      <section id="home" className="hero-section pt-20">
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left">
-                <div className="space-y-3">
-                  <p className="text-sm text-primary uppercase tracking-wider">Software Engineer</p>
-                  <h1 className="text-4xl md:text-6xl font-extrabold text-white">Hola, soy Maicol<br/> Jaquez</h1>
-                  <p className="text-lg md:text-xl text-white/90 max-w-xl mt-4">Construyo experiencias web modernas enfocadas en rendimiento, accesibilidad y diseño bonito — React, Tailwind y buenas prácticas.</p>
+      <Box as="section" id="home" pt={20} pb={8}>
+        <Container maxW="6xl">
+          <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={8} alignItems="center">
+            <GridItem order={{ base: 2, md: 1 }}>
+              <Box textAlign={{ base: 'center', md: 'left' }}>
+                <Text fontSize="sm" color="teal.300" textTransform="uppercase" letterSpacing="widest">Software Engineer</Text>
+                <Heading as="h1" size="2xl" mt={2} color="white">Hola, soy Maicol<br/>Jaquez</Heading>
+                <Text fontSize="lg" color="whiteAlpha.900" maxW="xl" mt={4}>Construyo experiencias web modernas enfocadas en rendimiento, accesibilidad y diseño bonito — React, Chakra UI y buenas prácticas.</Text>
 
-                  <div className="mt-6 flex items-center gap-4">
-                    <a href="#contact" className="btn-primary">Contactame</a>
-                    <a href="/docs/Curriculum.pdf" download className="inline-flex items-center gap-2 bg-white/5 text-white px-4 py-2 rounded-lg">Descargar CV</a>
-                  </div>
-                </div>
-              </div>
+                <Box mt={6} display="flex" justifyContent={{ base: 'center', md: 'flex-start' }} gap={4}>
+                  <Button as="a" href="#contact" colorScheme="teal">Contáctame</Button>
+                  <Button as="a" href="/docs/Curriculum.pdf" download variant="ghost" color="whiteAlpha.800">Descargar CV</Button>
+                </Box>
+              </Box>
+            </GridItem>
 
-              <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent flex items-center justify-center shadow-lg">
-                  <img src={programer1} alt="avatar" className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover border-2 border-white/6" />
-                </div>
-              </div>
-            </div>
-      </section>
+            <GridItem order={{ base: 1, md: 2 }}>
+              <Box display="flex" justifyContent={{ base: 'center', md: 'flex-end' }}>
+                <Box position="relative" w={{ base: '240px', md: '288px' }} h={{ base: '240px', md: '288px' }} borderRadius="3xl" bgGradient="linear(to-br, teal.200, transparent)" display="flex" alignItems="center" justifyContent="center" boxShadow="lg">
+                  <Image src={programer1} alt="avatar" boxSize={{ base: '220px', md: '256px' }} borderRadius="full" objectFit="cover" borderWidth={2} borderColor="whiteAlpha.100" />
+                </Box>
+              </Box>
+            </GridItem>
+          </Grid>
+        </Container>
+      </Box>
 
-          {/* Featured small projects */}
-          <section className="py-10">
-            <div className="max-w-6xl mx-auto px-4">
-              <h3 className="text-xl text-white mb-4">Proyectos destacados</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="p-4 bg-white/5 rounded-lg">
-                  <img src={require("../assets/img/TiendaVirtual.png")} alt="tienda" className="w-full h-36 object-cover rounded-md" />
-                  <h4 className="text-white font-semibold mt-2">Tienda Virtual</h4>
-                </div>
-                <div className="p-4 bg-white/5 rounded-lg">
-                  <img src={require("../assets/img/netflix-clone.png")} alt="netflix" className="w-full h-36 object-cover rounded-md" />
-                  <h4 className="text-white font-semibold mt-2">Netflix Clone</h4>
-                </div>
-                <div className="p-4 bg-white/5 rounded-lg">
-                  <img src={require("../assets/img/RestaurantCafe.png")} alt="cafe" className="w-full h-36 object-cover rounded-md" />
-                  <h4 className="text-white font-semibold mt-2">El Gustico</h4>
-                </div>
-                <div className="p-4 bg-white/5 rounded-lg">
-                  <img src={require("../assets/img/Libreria.png")} alt="libros" className="w-full h-36 object-cover rounded-md" />
-                  <h4 className="text-white font-semibold mt-2">Library</h4>
-                </div>
-              </div>
-            </div>
-          </section>
-
-      {/* Quick test element: remove after verification */}
-      <div className="hidden md:block">
-        <span className="test-tailwind-generated">TAILWIND_TEST</span>
-      </div>
+      {/* Featured small projects */}
+      <Box as="section" py={10}>
+        <Container maxW="6xl">
+          <Heading as="h3" size="md" color="white" mb={4}>Proyectos destacados</Heading>
+          <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} gap={4}>
+            <Box p={4} bg="whiteAlpha.50" borderRadius="md">
+              <Image src={require("../assets/img/TiendaVirtual.png")} alt="tienda" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Text color="white" fontWeight="semibold" mt={2}>Tienda Virtual</Text>
+            </Box>
+            <Box p={4} bg="whiteAlpha.50" borderRadius="md">
+              <Image src={require("../assets/img/netflix-clone.png")} alt="netflix" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Text color="white" fontWeight="semibold" mt={2}>Netflix Clone</Text>
+            </Box>
+            <Box p={4} bg="whiteAlpha.50" borderRadius="md">
+              <Image src={require("../assets/img/RestaurantCafe.png")} alt="cafe" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Text color="white" fontWeight="semibold" mt={2}>El Gustico</Text>
+            </Box>
+            <Box p={4} bg="whiteAlpha.50" borderRadius="md">
+              <Image src={require("../assets/img/Libreria.png")} alt="libros" objectFit="cover" w="full" h="140px" borderRadius="md" />
+              <Text color="white" fontWeight="semibold" mt={2}>Library</Text>
+            </Box>
+          </SimpleGrid>
+        </Container>
+      </Box>
 
       <About />
       <Skils />
@@ -71,7 +82,7 @@ function Home() {
       <Contact />
       <Footer />
     </>
-  )
+  );
 }
 
 export default Home;
