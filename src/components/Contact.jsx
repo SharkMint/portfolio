@@ -1,69 +1,91 @@
-// styles removed: using Tailwind utilities only
+// migrate to Chakra: use Chakra components and useToast; keep emailjs for sending
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { ToastContainer, toast } from "react-toastify";
+import {
+	Box,
+	Button,
+	FormControl,
+	FormLabel,
+	Input,
+	Textarea,
+	Heading,
+	useToast,
+} from "@chakra-ui/react";
 
 const Contact = () => {
-
-	const showToastMessage = () => {
-		toast.success('Message Success!', {
-			position: toast.POSITION.TOP_RIGHT,
-			toastId: 'contact-success'
-		});
-	};
-
 	const form = useRef();
+	const toast = useToast();
 
 	const sendEmail = (e) => {
 		e.preventDefault();
 
-		emailjs.sendForm('service_xskjw5k', 'template_g0x0adf', e.target, 'pyfweufZCl3VbftlI')
-			.then((result) => {
-				toast.success('Mensaje enviado correctamente', { position: toast.POSITION.TOP_RIGHT, toastId: 'contact-success' });
-				console.log(result.text);
-			}, (error) => {
-				toast.error('Error al enviar el mensaje', { position: toast.POSITION.TOP_RIGHT, toastId: 'contact-error' });
-				console.log(error.text);
-			});
+		emailjs
+			.sendForm(
+				'service_xskjw5k',
+				'template_g0x0adf',
+				e.target,
+				'pyfweufZCl3VbftlI'
+			)
+			.then(
+				(result) => {
+					toast({
+						title: 'Mensaje enviado',
+						description: 'Tu mensaje fue enviado correctamente.',
+						status: 'success',
+						duration: 5000,
+						isClosable: true,
+						position: 'top-right',
+					});
+					console.log(result.text);
+				},
+				(error) => {
+					toast({
+						title: 'Error al enviar',
+						description: 'Ocurrió un error al enviar tu mensaje. Intenta nuevamente más tarde.',
+						status: 'error',
+						duration: 7000,
+						isClosable: true,
+						position: 'top-right',
+					});
+					console.log(error.text);
+				}
+			);
 
 		e.target.reset();
 	};
 
 	return (
-		<section id="contact" className="min-h-screen flex items-center justify-center py-12">
-			<div className="w-full max-w-2xl">
-				<h1 className="text-3xl text-white text-center mb-6">Contactame</h1>
-						<form ref={form} onSubmit={sendEmail} className="bg-white/5 p-6 rounded-lg border border-white/20">
-							<label className="block mb-2 text-sm text-white">Nombre</label>
-							<input className="input-base mb-4" type="text" id="user_name" name="user_name" placeholder="Name" required />
+		<Box as="section" id="contact" minH="100vh" display="flex" alignItems="center" justifyContent="center" py={12}>
+			<Box w="full" maxW="2xl">
+				<Heading as="h1" size="lg" color="white" textAlign="center" mb={6}>
+					Contáctame
+				</Heading>
 
-							<label className="block mb-2 text-sm text-white">Email</label>
-							<input className="input-base mb-4" type="email" id="user_email" name="user_email" placeholder="Email" required />
+				<Box as="form" ref={form} onSubmit={sendEmail} bg="whiteAlpha.50" p={6} rounded="lg" borderWidth={1} borderColor="whiteAlpha.200">
+					<FormControl mb={4}>
+						<FormLabel color="white" fontSize="sm">Nombre</FormLabel>
+						<Input name="user_name" id="user_name" placeholder="Tu nombre" required bg="whiteAlpha.10" _placeholder={{ color: 'gray.400' }} />
+					</FormControl>
 
-							<label className="block mb-2 text-sm text-white">Mensaje</label>
-							<textarea className="input-base mb-4 h-36 resize-none" id="message" name="message" placeholder="Message" required />
+					<FormControl mb={4}>
+						<FormLabel color="white" fontSize="sm">Email</FormLabel>
+						<Input name="user_email" id="user_email" type="email" placeholder="tu@correo.com" required bg="whiteAlpha.10" _placeholder={{ color: 'gray.400' }} />
+					</FormControl>
 
-							<div className="text-center">
-								<button type="submit" className="btn-primary" onClick={showToastMessage}>Enviar</button>
-							</div>
-						</form>
-			</div>
-			<ToastContainer
-				position="top-right"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				pauseOnHover
-				draggable
-				toastClassName={(context) => `toast-default ${context?.type === 'success' ? 'toast-success' : context?.type === 'error' ? 'toast-error' : ''}`}
-				bodyClassName={() => 'text-sm'}
-				className={() => 'toast-container-base'}
-			/>
-		</section>
-	)
-}
+					<FormControl mb={4}>
+						<FormLabel color="white" fontSize="sm">Mensaje</FormLabel>
+						<Textarea name="message" id="message" placeholder="Escribe tu mensaje" required bg="whiteAlpha.10" minH="160px" resize="none" _placeholder={{ color: 'gray.400' }} />
+					</FormControl>
 
-export default Contact
+					<Box textAlign="center">
+						<Button type="submit" colorScheme="teal">
+							Enviar
+						</Button>
+					</Box>
+				</Box>
+			</Box>
+		</Box>
+	);
+};
+
+export default Contact;
