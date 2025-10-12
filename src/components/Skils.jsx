@@ -14,6 +14,13 @@ import laravel from "./../assets/img/laravel.png";
 import mysql from "./../assets/img/mysql.png";
 import net from "./../assets/img/net.png";
 import nextjs from "./../assets/img/nextjs.png";
+import iconchakraui from "./../assets/img/chakraUI.png";
+import iconmaterialui from "./../assets/img/materialUI.png";
+import iconantdesign from "./../assets/img/Ant-design-icon-02.png";
+import icontailwindcss from "./../assets/img/tailwind.png";
+import iconvitejs from "./../assets/img/Vitejs-logo.svg.png";
+import icongit from "./../assets/img/Git-Icon.png";
+import icondocker from "./../assets/img/docker.png";
 import {
   Box,
   Container,
@@ -26,23 +33,74 @@ import {
 
 const Skils = () => {
   const groups = [
-    { title: 'Backend', items: [{img: aspnetmvc, label: 'ASP.NET MVC'}, {img: net, label: '.NET'}, {img: laravel, label: 'Laravel'}, {img: nextjs, label: 'Next JS'}, {img: firebase, label: 'Firebase'}, {img: mysql, label: 'Mysql'}] },
-  { title: 'Frontend', items: [{img: iconhtml, label: 'HTML 5'}, {img: iconcss, label: 'CSS 3'}, {img: iconjavascript, label: 'Javascript'}, {img: icontypescript, label: 'Typescript'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: icongithub, label: 'Github'}, {img: iconreact, label: 'React.JS'}] },
-  { title: 'Tools & Others', items: [{img: iconredux, label: 'Redux'}, {img: icongithub, label: 'GitHub'}, {img: iconbootstrap, label: 'Bootstrap'}, {img: iconreact, label: 'React'}] }
+    {
+      title: "Backend",
+      items: [
+        { img: aspnetmvc, label: "ASP.NET MVC" },
+        { img: net, label: ".NET" },
+        { img: iconjavascript, label: "Javascript" },
+        { img: icontypescript, label: "Typescript" },
+        { img: laravel, label: "Laravel" },
+        { img: nextjs, label: "Next JS" },
+        { img: firebase, label: "Firebase" },
+        { img: mysql, label: "Mysql" },
+      ],
+    },
+    {
+      title: "Frontend",
+      items: [
+        { img: iconhtml, label: "HTML 5" },
+        { img: iconcss, label: "CSS 3" },
+        { img: iconbootstrap, label: "Bootstrap" },
+        { img: iconchakraui, label: "Chakra UI" },
+        { img: iconmaterialui, label: "Material UI" },
+        { img: iconantdesign, label: "Ant Design" },
+        { img: icontailwindcss, label: "Tailwind CSS" },
+        { img: iconjavascript, label: "Javascript" },
+        { img: icontypescript, label: "Typescript" },
+        { img: iconvitejs, label: "Vite JS" },
+        { img: iconreact, label: "React.JS" },
+        { img: iconredux, label: "Redux" },
+      ],
+    },
+    {
+      title: "Tools & Others",
+      items: [
+        { img: icongithub, label: "GitHub" },
+        { img: icongit, label: "Git" },
+        { img: icondocker, label: "Docker" },
+      ],
+    },
   ];
 
   return (
-    <Box as="section" id="skils" py={16} bgGradient="linear(to-tr, #021024, #061827)">
+    <Box
+      as="section"
+      id="skils"
+      py={16}
+      bgGradient="linear(to-tr, #021024, #061827)"
+    >
       <Container maxW="6xl">
-        <Heading as="h2" size="xl" color="white" textAlign="center" mb={8}>Habilidades</Heading>
+        <Heading as="h2" size="xl" color="white" textAlign="center" mb={8}>
+          Habilidades
+        </Heading>
 
         <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>
           {groups.map((g, idx) => (
             <Box key={idx} bg="whiteAlpha.50" p={6} borderRadius="xl">
-              <Heading as="h3" size="md" color="white" mb={4}>{g.title}</Heading>
+              <Heading as="h3" size="md" color="white" mb={4}>
+                {g.title}
+              </Heading>
               <SimpleGrid columns={2} gap={4}>
                 {g.items.map((s, i) => (
-                  <HStack key={i} spacing={3} bg="whiteAlpha.50" p={3} borderRadius="md" align="center">
+                  <HStack
+                    key={i}
+                    spacing={3}
+                    bg="whiteAlpha.50"
+                    p={3}
+                    borderRadius="md"
+                    align="center"
+                  >
                     <Image src={s.img} alt={s.label} boxSize="32px" />
                     <Text color="white">{s.label}</Text>
                   </HStack>
@@ -53,7 +111,7 @@ const Skils = () => {
         </SimpleGrid>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
 export default Skils;
