@@ -1,9 +1,7 @@
 // migrated to Chakra UI
 import React from "react";
-import cafeteria from "../assets/img/RestaurantCafe.png";
-import libros from "../assets/img/Libreria.png";
-import netflix from "../assets/img/netflix-clone.png";
-import tienda from "../assets/img/TiendaVirtual.png";
+import oficinaVirtual from "../assets/img/oficinavirtual.png";
+import portalAutorizaciones from "../assets/img/portalautorizaciones.png";
 import { Box, Container, SimpleGrid, Image, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 const ProjectCard = ({ img, title, repo }) => (
@@ -15,10 +13,10 @@ const ProjectCard = ({ img, title, repo }) => (
       <Box p={4} w="full" display="flex" alignItems="center" justifyContent="space-between" pointerEvents="auto">
         <Box>
           <Heading as="h3" size="sm" color="white">{title}</Heading>
-          <Text fontSize="sm" color="whiteAlpha.800">Project demo & source</Text>
+          <Text fontSize="sm" color="whiteAlpha.800">Ver proyecto en vivo</Text>
         </Box>
         <Link href={repo} isExternal>
-          <Button colorScheme="teal">Ver repo</Button>
+          <Button colorScheme="teal">Ver sitio</Button>
         </Link>
       </Box>
     </Box>
@@ -31,11 +29,9 @@ const Proyects = () => {
       <Container maxW="6xl">
         <Heading as="h2" size="xl" color="white" textAlign="center" mb={8}>Proyectos</Heading>
 
-        <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={6}>
-          <ProjectCard img={cafeteria} title="El Gustico" repo="https://github.com/SharkMint/RestaurantCafe" />
-          <ProjectCard img={tienda} title="Tienda Virtual" repo="https://github.com/SharkMint/TiendaOnline" />
-          <ProjectCard img={netflix} title="Netflix Clone" repo="https://github.com/SharkMint/netflix-clone" />
-          <ProjectCard img={libros} title="Library" repo="https://github.com/SharkMint/TiendaDeLibros" />
+        <SimpleGrid columns={{ base: 1, sm: 2 }} gap={6}>
+          <ProjectCard img={oficinaVirtual} title="Oficina Virtual" repo="https://ov.arsrenacer.com/" />
+          <ProjectCard img={portalAutorizaciones} title="Portal de Autorizaciones" repo="https://autorizaciones.arsrenacer.com/" />
         </SimpleGrid>
       </Container>
     </Box>
