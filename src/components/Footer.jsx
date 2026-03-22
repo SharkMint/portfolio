@@ -1,23 +1,31 @@
-// styles removed: using Tailwind utilities only
+// Footer migrated to Chakra UI
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { Box, Flex, Text, HStack } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gradient-to-t from-[#030618] to-transparent text-white py-10">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <p className="font-semibold text-lg">Maicol Jaquez</p>
-          <p className="text-sm text-white/60">Software Developer — © {new Date().getFullYear()}</p>
-        </div>
+    <Box as="footer" w="full" bgGradient="linear(to-t, rgba(3,6,24,1), transparent)" py={10}>
+      <Flex maxW="6xl" mx="auto" px={4} direction={{ base: "column", md: "row" }} align="center" justify="space-between" gap={6}>
+        <Box>
+          <Text fontWeight="semibold" fontSize="lg" color="white">Maicol Jaquez</Text>
+          <Text fontSize="sm" color="whiteAlpha.600">Software Developer — © {new Date().getFullYear()}</Text>
+        </Box>
 
-        <div className="flex gap-6 mt-2 md:mt-0">
-          <a href="#home" className="text-white/80 hover:text-primary">Home</a>
-          <a href="#proyect" className="text-white/80 hover:text-primary">Projects</a>
-          <a href="#contact" className="text-white/80 hover:text-primary">Contact</a>
-        </div>
-      </div>
-    </footer>
-  )
-}
+        <HStack spacing={6}>
+          <ScrollLink to="home" spy={true} smooth={true} offset={-80}>
+            <Text color="whiteAlpha.800" _hover={{ color: "teal.300" }} cursor="pointer">Home</Text>
+          </ScrollLink>
+          <ScrollLink to="proyect" spy={true} smooth={true} offset={-80}>
+            <Text color="whiteAlpha.800" _hover={{ color: "teal.300" }} cursor="pointer">Projects</Text>
+          </ScrollLink>
+          <ScrollLink to="contact" spy={true} smooth={true} offset={-80}>
+            <Text color="whiteAlpha.800" _hover={{ color: "teal.300" }} cursor="pointer">Contact</Text>
+          </ScrollLink>
+        </HStack>
+      </Flex>
+    </Box>
+  );
+};
 
 export default Footer;
