@@ -5,7 +5,6 @@ import fotomia from "./../assets/img/Fotomia.jpg";
 import github from "./../assets/img/github.png";
 import instagram from "./../assets/img/instagram.png";
 import linkedin from "./../assets/img/linkedin.png";
-import twitter from "./../assets/img/twitter.png";
 import {
   Box,
   Container,
@@ -33,9 +32,6 @@ const About = () => {
               <HStack spacing={4} mt={6}>
                 <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/maicol-jaquez-ramirez-926917190/" isExternal>
                   <Image src={linkedin} alt="linkedin" boxSize="24px" />
-                </Link>
-                <Link aria-label="Twitter" href="https://twitter.com/MaicolJaquez" isExternal>
-                  <Image src={twitter} alt="twitter" boxSize="24px" />
                 </Link>
                 <Link aria-label="Github" href="https://github.com/SharkMint" isExternal>
                   <Image src={github} alt="github" boxSize="24px" />

@@ -1,45 +1,126 @@
-// migrated to Chakra UI
 import React from "react";
-import cafeteria from "../assets/img/RestaurantCafe.png";
-import libros from "../assets/img/Libreria.png";
-import netflix from "../assets/img/netflix-clone.png";
-import tienda from "../assets/img/TiendaVirtual.png";
-import { Box, Container, SimpleGrid, Image, Heading, Text, Button, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  SimpleGrid,
+  Image,
+  Heading,
+  Text,
+  Button,
+  Link,
+  //HStack,
+  //Tag,
+  //TagLabel,
+  VStack,
+} from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
-const ProjectCard = ({ img, title, repo }) => (
-  <Box position="relative" w="full" h="44" borderRadius="xl" overflow="hidden" bg="whiteAlpha.50" role="group">
-    <Image src={img} alt={title} objectFit="cover" w="full" h="full" transition="transform 0.3s" _groupHover={{ transform: 'scale(1.05)' }} />
+import oficinaVirtual from "../assets/img/oficinavirtual.png";
+import portalAutorizaciones from "../assets/img/portalautorizaciones.png";
 
-    {/* Overlay: becomes visible on group hover or when focus is inside (keyboard accessibility) */}
-    <Box position="absolute" inset={0} bgGradient="linear(to-t, rgba(0,0,0,0.7), transparent)" opacity={0} _groupHover={{ opacity: 1 }} _focusWithin={{ opacity: 1 }} transition="opacity 0.3s" display="flex" alignItems="end" pointerEvents="none">
-      <Box p={4} w="full" display="flex" alignItems="center" justifyContent="space-between" pointerEvents="auto">
-        <Box>
-          <Heading as="h3" size="sm" color="white">{title}</Heading>
-          <Text fontSize="sm" color="whiteAlpha.800">Project demo & source</Text>
-        </Box>
-        <Link href={repo} isExternal>
-          <Button colorScheme="teal">Ver repo</Button>
-        </Link>
-      </Box>
+const projects = [
+  {
+    img: oficinaVirtual,
+    title: "Oficina Virtual",
+    description: "Sistema de gestión interna para ARS Renacer con módulos de empleados, turnos y documentos.",
+    //tag: ["React", ".NET", "SQL"],
+    demo: "https://ov.arsrenacer.com/",
+  },
+  {
+    img: portalAutorizaciones,
+    title: "Portal de Autorizaciones",
+    description: "Portal para gestión y seguimiento de autorizaciones médicas en tiempo real.",
+    //tag: ["React", ".NET", "SQL"],
+    demo: "https://autorizaciones.arsrenacer.com/",
+  },
+];
+
+const ProjectCard = ({ img, title, description, tags, demo }) => (
+  <Box
+    bg="whiteAlpha.50"
+    borderWidth={1}
+    borderColor="whiteAlpha.100"
+    borderRadius="xl"
+    overflow="hidden"
+    role="group"
+    transition="transform 0.2s, border-color 0.2s"
+    _hover={{ transform: "translateY(-4px)", borderColor: "teal.500" }}
+    display="flex"
+    flexDirection="column"
+  >
+    <Box h="44" overflow="hidden" flexShrink={0}>
+      <Image
+        src={img}
+        alt={title}
+        objectFit="cover"
+        w="full"
+        h="full"
+        transition="transform 0.3s"
+        _groupHover={{ transform: "scale(1.05)" }}
+      />
     </Box>
+
+    <VStack align="start" p={5} spacing={3} flex={1}>
+      <Heading as="h3" size="sm" color="white">
+        {title}
+      </Heading>
+
+      <Text fontSize="sm" color="whiteAlpha.700" lineHeight="tall" flex={1}>
+        {description}
+      </Text>
+
+      {/*
+        <HStack spacing={2} flexWrap="wrap">
+        {tags.map((tag) => (
+          <Tag key={tag} size="sm" variant="subtle" colorScheme="teal" borderRadius="full">
+            <TagLabel>{tag}</TagLabel>
+          </Tag>
+        ))}
+      </HStack>
+      */}
+
+      {demo !== "#" && (
+        <Link href={demo} isExternal w="full" mt={1}>
+          <Button
+            size="sm"
+            colorScheme="teal"
+            variant="ghost"
+            rightIcon={<ExternalLinkIcon />}
+            w="full"
+            borderWidth={1}
+            borderColor="teal.500"
+            _hover={{ bg: "teal.500", color: "white" }}
+          >
+            Ver sitio
+          </Button>
+        </Link>
+      )}
+    </VStack>
   </Box>
 );
 
 const Proyects = () => {
   return (
-    <Box as="section" id="proyect" py={16} bg="#071022">
+    <Box as="section" id="proyect" py={16} bgGradient="linear(to-tr, #020617, #061827)">
       <Container maxW="6xl">
-        <Heading as="h2" size="xl" color="white" textAlign="center" mb={8}>Proyectos</Heading>
+        <VStack mb={10} spacing={2}>
+          <Heading as="h2" size="xl" color="white" textAlign="center">
+            Proyectos
+          </Heading>
+          <Box w={12} h={1} bg="teal.400" borderRadius="full" />
+          <Text color="whiteAlpha.600" fontSize="sm" textAlign="center" pt={1}>
+            Algunos de los proyectos que he desarrollado
+          </Text>
+        </VStack>
 
-        <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={6}>
-          <ProjectCard img={cafeteria} title="El Gustico" repo="https://github.com/SharkMint/RestaurantCafe" />
-          <ProjectCard img={tienda} title="Tienda Virtual" repo="https://github.com/SharkMint/TiendaOnline" />
-          <ProjectCard img={netflix} title="Netflix Clone" repo="https://github.com/SharkMint/netflix-clone" />
-          <ProjectCard img={libros} title="Library" repo="https://github.com/SharkMint/TiendaDeLibros" />
+        <SimpleGrid columns={{ base: 1, sm: 2, lg: 2 }} gap={6}>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
         </SimpleGrid>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
 export default Proyects;
