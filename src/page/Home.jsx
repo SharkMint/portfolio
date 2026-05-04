@@ -50,6 +50,7 @@ function Home() {
         </Container>
       </Box>
 
+
       <About />
       <Skils />
       <Proyects />
